@@ -1,0 +1,10 @@
+{
+  "db":{
+    "name":"colectivos",
+    "host":"localhost",
+    "user":"root",
+    "password":""
+  },
+  "name":"Colectivos",
+  "version":0.1
+}
