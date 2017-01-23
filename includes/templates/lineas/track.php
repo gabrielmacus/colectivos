@@ -69,9 +69,21 @@
                                  times+=time;
                                  distances+=distance;
 
+                                time=(times/60).toFixed(2);
+                                distance=(distances/1000).toFixed(2);
 
-                                $("#"+parada.id+" .status").html((times/60).toFixed(2)+" minutos");
-                                $("#"+parada.id+" .distance").html((distances/1000).toFixed(2)+" km");
+                                console.log(time);
+                                if(distance<=0.80)
+                                {
+                                    $("#"+parada.id+" .status").html("Llegando");
+                                }
+                                else
+                                {
+                                    $("#"+parada.id+" .status").html(time+" minutos");
+                                }
+
+
+                                $("#"+parada.id+" .distance").html(distance+" km");
 
 
 
@@ -207,7 +219,9 @@
             navigator.geolocation.watchPosition(watchPosition,function(err)
             {
 
-            },{enableHighAccuracy:true,maximumAge:1000});
+            },{  
+                enableHighAccuracy: true,
+                maximumAge: Infinity});
             <?php
             }?>
 
@@ -222,6 +236,7 @@
     {
         var position={lat: res.coords.latitude, lng: res.coords.longitude};
 
+        console.log(res);
         $("#data").append("<br>"+position.lat+" "+position.lng);
         if(!map.getCenter())
         {

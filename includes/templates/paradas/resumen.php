@@ -82,7 +82,7 @@
         <h2>Paradas</h2>
     </header>
     <div>
-    <ul >
+    <ul class="w3-ul" >
 
 
         <script id="template" type="application/x-mustache">
@@ -104,7 +104,7 @@
 
            </div>
 
-           <ul>
+           <ul class="w3-ul">
            {{#lineas}}
                <li>
                    <span>{{numero}} {{nombre}}</span>

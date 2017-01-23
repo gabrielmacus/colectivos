@@ -8,7 +8,7 @@
 
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-<link rel="stylesheet" href=" css/estilo.css"/>
+<link rel="stylesheet" href="http://w3schools.com/lib/w3.css"/>
 <meta charset="UTF-8">
 <title><?php echo $config["name"] ?></title>
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
