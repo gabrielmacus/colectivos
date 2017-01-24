@@ -78,11 +78,11 @@
 
 </script>
 <section class="resumen">
-    <header>
+    <header class="w3-padding">
         <h2>Paradas</h2>
     </header>
     <div>
-    <ul class="w3-ul" >
+    <ul class="w3-row-padding w3-ul " >
 
 
         <script id="template" type="application/x-mustache">
@@ -92,8 +92,9 @@
 
 
                 {{#paradas}}
-               <li>
-           <h3>{{paradaReverse}}</h3>
+               <li class="w3-col s12 m6 w3-border-0 ">
+                <div class="w3-card-4 w3-container w3-white w3-margin-top">
+                   <h3 >{{paradaReverse}}</h3>
 
 
                 {{setPoint}}
@@ -104,21 +105,30 @@
 
            </div>
 
-           <ul class="w3-ul">
+           <ul class="w3-ul" >
            {{#lineas}}
-               <li>
+               <li style="padding:0px" class="w3-border-0">
                    <span>{{numero}} {{nombre}}</span>
                </li>
             {{/lineas}}
-          
+
            </ul>
 
            <p>
                   {{paradaDescripcion}}
            </p>
 
+                </div>
+
+
        </li>
            {{/paradas}}
+
+
+
+
+
+
 
            {{^paradas}}
            <div class="info-msg">
