@@ -70,7 +70,7 @@ $id=$_GET["id"];
 
         case 'add':
 
-        $validateData=validateData($_POST) ;
+       $validateData=validateData($_POST) ;
         if($validateData===true)
         {
             $sql="REPLACE INTO paradas SET ";
@@ -94,6 +94,11 @@ $id=$_GET["id"];
             if($res = $db->query($sql))
             {
 
+                $result["success"]=$db->insert_id;
+
+                /*
+                 * Descomentar si quiero poder asociar lineas a las paradas
+                 *
                 $sql="REPLACE INTO lineas_paradas ( `linea`, `parada`) values ";
 
                 foreach ($_POST["lineas"] as $linea)
@@ -102,6 +107,7 @@ $id=$_GET["id"];
                 }
 
                 $sql=rtrim($sql,",");
+
 
                 $result["sql"]=$sql;
                 if($res=$db->query($sql))
@@ -112,7 +118,7 @@ $id=$_GET["id"];
                 {
                     $result["error"]=$db->errno;
                 }
-
+                */
 
 
             }

@@ -71,6 +71,10 @@
                   {{lineaDescripcion}}
            </p>
            <a href="lineas-seguimiento.php?id={{lineaId}}">Seguimiento</a>
+               <a href="lineas-reportar.php?id={{lineaId}}">Dar ubicacion</a>
+
+                   <a href="lineas-edit.php?id={{lineaId}}">Editar</a>
+                              <a href="lineas-data.php?act=del&id={{lineaId}}">Eliminar</a>
             </li>
            {{/lineas}}
 

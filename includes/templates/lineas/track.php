@@ -72,8 +72,7 @@
                                 time=(times/60).toFixed(2);
                                 distance=(distances/1000).toFixed(2);
 
-                                console.log(time);
-                                if(distance<=0.80)
+                                if(distance<=0.25)
                                 {
                                     $("#"+parada.id+" .status").html("Llegando");
                                 }
@@ -114,7 +113,11 @@
         );
 
     }
-
+/*
+* ,
+ transitOptions: {
+ modes: [google.maps.TransitMode.BUS]
+ }*/
 
     function calculateDistance(origin,destination,cb)
     {    var service = new google.maps.DistanceMatrixService();
@@ -123,7 +126,7 @@
             {
                 origins:[origin],
                 destinations:[destination],
-                travelMode: google.maps.TravelMode.DRIVING,
+                travelMode: google.maps.TravelMode.DRIVING ,
                 transitOptions: {
                     modes: [google.maps.TransitMode.BUS]
                 }

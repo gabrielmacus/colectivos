@@ -36,6 +36,7 @@
                 loadData(function (data) {
                     var template=$("#template");
 
+
                     template.replaceWith(Mustache.render(template.html(),{"paradas":data}));
 
 
@@ -87,21 +88,14 @@
 
         <script id="template" type="application/x-mustache">
 
-
-
-
-
                 {{#paradas}}
                <li class="w3-col s12 m6 w3-border-0 ">
+
                 <div class="w3-card-4 w3-container w3-white w3-margin-top">
+
                    <h3 >{{paradaReverse}}</h3>
-
-
-                {{setPoint}}
-
-
-
            <div id="map{{paradaId}}" class="map" data-lat="{{paradaLat}}" data-lng="{{paradaLng}}">
+
 
            </div>
 
@@ -117,18 +111,13 @@
            <p>
                   {{paradaDescripcion}}
            </p>
-
+     <a href="paradas-edit.php?id={{paradaId}}">Editar</a>
+          <a href="paradas-data.php?act=del&id={{paradaId}}">Eliminar</a>
                 </div>
 
 
        </li>
            {{/paradas}}
-
-
-
-
-
-
 
            {{^paradas}}
            <div class="info-msg">

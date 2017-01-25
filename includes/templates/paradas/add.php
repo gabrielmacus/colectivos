@@ -2,80 +2,11 @@
 
 
 
-    $(document).on("submit",".add form",function (e) {
-        $.ajax(
-            {
-                method:"post",
-                url:"<?php echo $urlSave; ?>",
-                data:$(this).serialize(),
-                dataType:"json",
-                success:function (res) {
-                    console.log(res);
-                },
-                error:function (err) {
-                    console.log(err);
-                }
-            }
-        );
-        e.preventDefault();
-    });
+    var marker;
+
     $(document).ready(function () {
         loadLineas();
-    <?php if($isEdit)
-    {
-        ?>
 
-
-
-        $.ajax(
-            {
-                method:"get",
-                url:"paradas-data.php?act=list&id=<?php echo $id;?>",
-                data:$(this).serialize(),
-                dataType:"json",
-                success:function (res) {
-                    var data =res.data[0];
-
-                    console.log(data);
-                    $.each(data,function (k,v) {
-
-
-
-                        if(Array.isArray(v))
-                        {
-
-                            var ids=[];
-                            $.each(v,function (k,v) {
-
-
-                                ids.push(v.id);
-
-                            });
-
-
-                            $("[name='"+k+"[]']").val(ids);
-
-                        }
-                        else
-                        {
-                            $("[name="+k+"]").val(v);
-
-                        }
-
-
-
-                    })
-                },
-                error:function (err) {
-                    console.log(err);
-                }
-            }
-        );
-
-
-
-    <?php 
-    }?>
     });
 
     function loadLineas() {
@@ -103,14 +34,98 @@
     }
 
     function initMap() {
+        $(document).on("submit",".add form",function (e) {
+            $.ajax(
+                {
+                    method:"post",
+                    url:"<?php echo $urlSave; ?>",
+                    data:$(this).serialize(),
+                    dataType:"json",
+                    success:function (res) {
+                        console.log(res);
+                    },
+                    error:function (err) {
+                        console.log(err);
+                    }
+                }
+            );
+            e.preventDefault();
+        });
 
 
         var map = new google.maps.Map(document.getElementById("map"), {
             zoom: 8,
             center:{lat:-31.729,lng:-60.5401}
         });
+
+
+        <?php if($isEdit)
+{
+ ?>
+
+
+
+        $.ajax(
+            {
+                method:"get",
+                url:"paradas-data.php?act=list&id=<?php echo $id;?>",
+                data:$(this).serialize(),
+                dataType:"json",
+                success:function (res) {
+                    var data =res.data[0];
+
+                    marker = new google.maps.Marker(
+                        {
+                            map:map,
+                            position:{lat:parseFloat(data.paradaLat),lng:parseFloat(data.paradaLng)}
+                        }
+                    );
+
+                    $.each(data,function (k,v) {
+
+
+
+                        if(Array.isArray(v))
+                        {
+
+                            var ids=[];
+                            $.each(v,function (k,v) {
+
+
+                                ids.push(v.id);
+
+                            });
+
+
+                            $("[name='"+k+"[]']").val(ids);
+
+                        }
+                        else
+                        {
+                            $("[name="+k+"]").val(v);
+
+
+                        }
+
+
+
+                    })
+                },
+                error:function (err) {
+                    console.log(err);
+                }
+            }
+        );
+
+
+
+        <?php
+        }?>
+
+
+
         var geocoder = new google.maps.Geocoder;
-        marker = new google.maps.Marker({map: map});
+       // marker = new google.maps.Marker({map: map});
 
 
         map.addListener('click', function(event) {
