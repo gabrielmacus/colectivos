@@ -6,8 +6,18 @@
  * Time: 02:15 AM
  */
 ?>
-<ul class="w3-ul">
-    <li><a href="paradas.php">Paradas</a></li>
-    <li><a href="lineas.php">Lineas</a></li>
+<button class="button is-outlined">Button</button>
+
+<ul  class="row  middle-lg" style="min-height: 100%;background: red">
+    <li class="col-lg-6" >
+            <a href="paradas.php">Paradas</a>
+
+    </li>
+    <li class="col-lg-6">
+        <a href="lineas.php">Lineas</a>
+
+
+
+    </li>
 </ul>
 
