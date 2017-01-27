@@ -7,12 +7,7 @@
  */
 ?>
 <style>
-    .main-container
-    {
-        height: 100%;
-        padding-left: 20%;
-        padding-right: 20%;
-    }
+    
     a{
         text-decoration: none;
     }
@@ -69,7 +64,7 @@
 
         <a class="w3-col s12 m6 lineas w3-center "  href="lineas.php">
 
-            <h2>Colectivos</h2>
+            <h2>Lineas</h2>
                 <img style="width:60%" src="icons/School-Bus.png">
 
 
