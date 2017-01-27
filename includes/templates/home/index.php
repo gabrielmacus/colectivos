@@ -8,12 +8,12 @@
 ?>
 <button class="button is-outlined">Button</button>
 
-<ul  class="row  middle-lg" style="min-height: 100%;background: red">
-    <li class="col-lg-6" >
+<ul  class="w3-row" style="list-style: none">
+    <li class="w3-col s12 m6" >
             <a href="paradas.php">Paradas</a>
 
     </li>
-    <li class="col-lg-6">
+    <li class="w3-col s12 m6">
         <a href="lineas.php">Lineas</a>
 
 
