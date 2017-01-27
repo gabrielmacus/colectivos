@@ -13,7 +13,9 @@
         padding-left: 20%;
         padding-right: 20%;
     }
-
+    a{
+        text-decoration: none;
+    }
     .paradas,.lineas
     {
         -webkit-transition: ease-out 500ms;
@@ -33,14 +35,25 @@
     }
     .paradas h2,.lineas h2
     {
+        -webkit-transition: ease-out 500ms;
+        -moz-transition: ease-out 500ms;
+        -ms-transition: ease-out 500ms;
+        -o-transition: ease-out 500ms;
+        transition: ease-out 500ms;
         position: relative;
-        bottom: -20px;
+        bottom: -80px;
+        z-index: -10;
+        opacity: 0;
+        font-weight: bold;
     }
 
 
     .paradas:hover h2,.lineas:hover h2
     {
-
+        bottom: 0px;
+        color: #3a3a3a;
+        font-size: 40px;
+        opacity: 1;
     }
 
 </style>

@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="css/w3.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 <meta charset="UTF-8">
 <title><?php echo $config["name"] ?></title>
