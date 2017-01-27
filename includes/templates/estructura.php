@@ -3,6 +3,12 @@
 <head>
  <?php include("includes/templates/header.php"); ?>
 </head>
+<style>
+    .main-container
+    {
+        min-height: 100%;
+    }
+</style>
 <body data-ng-app="app" data-ng-controller="ctrl">
    <div class="main-container">
 

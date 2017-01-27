@@ -6,18 +6,37 @@
  * Time: 02:15 AM
  */
 ?>
-<button class="button is-outlined">Button</button>
-
-<ul  class="w3-row" style="list-style: none">
-    <li class="w3-col s12 m6" >
-            <a href="paradas.php">Paradas</a>
-
-    </li>
-    <li class="w3-col s12 m6">
-        <a href="lineas.php">Lineas</a>
+<style>
 
 
+    .paradas div,.lineas div
+    {
+       padding: 50px!important;
+        background-color: #e74c3c;
+        text-align: center;
 
-    </li>
-</ul>
+
+
+    }
+
+
+
+</style>
+
+<div class="w3-row-padding" style="position: relative" >
+    <div style="display: flex;
+  flex-direction: column;
+  justify-content: center;">
+
+        <a  class="w3-col s12 m6 paradas " href="paradas.php">
+            <div style="width: 100%" class="w3-btn">Paradas</div>
+        </a>
+
+        <a class="w3-col s12 m6 lineas " href="lineas.php">
+            <div style="width: 100%" class="w3-btn">Lineas</div>
+        </a>
+    </div>
+
+</div>
+
 
