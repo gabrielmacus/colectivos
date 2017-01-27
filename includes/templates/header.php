@@ -20,6 +20,7 @@
 <meta charset="UTF-8">
 <title><?php echo $config["name"] ?></title>
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link href="css/animate.css">
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvx6X4xIXCsdiOtDRBge3DuO7i4FgMyc8&callback=initMap">
 </script>
