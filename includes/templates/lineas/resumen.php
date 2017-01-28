@@ -59,13 +59,21 @@
         <h2>Lineas</h2>
     </header>
     <div  class="w3-row-padding">
-        <ul  class="w3-row-padding" style="list-style: none">
+        <ul   class="w3-row-padding" style="list-style: none;">
 
 
             <script id="template" type="application/x-mustache">
                 {{#lineas}}
                <li class="w3-col s12 m6 w3-padding-large ">
-               <div class="w3-card w3-border-0 w3-margin-bottom w3-white" style="width:100%">
+               <div class="w3-card w3-border-0 w3-margin-bottom w3-white" style="width:100%;position:relative">
+
+                <span style="position:absolute;top:0px;right:10px;font-size:28px;">
+                   <a href="lineas-edit.php?id={{lineaId}}"><i  class="fa fa-pencil edit-btn" aria-hidden="true"></i></a>
+
+                 <a href="lineas-data.php?act=del&id={{lineaId}}"><i  class="fa fa-times close-btn" aria-hidden="true"></i></a>
+                </span>
+
+
                <header style="background:#4ABC96" class=" w3-padding">
                   <h3>{{lineaNombre}} {{lineaNumero}}</h3>
                </header>
@@ -77,25 +85,16 @@
                         </div>
                <footer class="w3-padding">
 
-                  {{^lineaDescripcion}}
-                   <p class=" w3-margin-top w3-margin-bottom ">
-                     No existe descripcion
-                   <p>
-                  {{/lineaDescripcion}}
-
-                     {{#lineaDescripcion}}
-
-                  <button style="background:#039BE5" class="w3-btn  w3-margin-top w3-margin-bottom w3-btn-block">Ver descripcion</button>
-                     {{/lineaDescripcion}}
 
 
-                  <div class="w3-row-padding">
 
-                     <a href="lineas-seguimiento.php?id={{lineaId}}" class="w3-col s6 " style="text-align:right">
+                  <div class="w3-row-padding actions">
+
+                     <a href="lineas-seguimiento.php?id={{lineaId}}" class="w3-col s6 " style="text-align:right;">
                       <img src="http://icon-icons.com/icons2/474/PNG/512/magnifier-target_46870.png" style="width:60%">
                      </a>
 
-               <a href="lineas-reportar.php?id={{lineaId}}"class="w3-col s6 " style="text-align:left">
+               <a href="lineas-reportar.php?id={{lineaId}}" class="w3-col s6 " style="text-align:left">
                       <img src="icons/satellite.png" style="width:60%;">
                      </a>
 <!--
@@ -112,14 +111,14 @@
 
 
 
-
+<!--
                 <a href="lineas-seguimiento.php?id={{lineaId}}">Seguimiento</a>
                <a href="lineas-reportar.php?id={{lineaId}}">Dar ubicacion</a>
 
                    <a href="lineas-edit.php?id={{lineaId}}">Editar</a>
                               <a href="lineas-data.php?act=del&id={{lineaId}}">Eliminar</a>
 
-
+-->
 
 
 

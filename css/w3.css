@@ -348,7 +348,58 @@ input[type=checkbox].w3-check:disabled+.w3-validate,input[type=radio].w3-radio:d
 .w3-border-pale-red,.w3-hover-border-pale-red:hover{border-color:#ffe7e7!important}.w3-border-pale-green,.w3-hover-border-pale-green:hover{border-color:#e7ffe7!important}
 .w3-border-pale-yellow,.w3-hover-border-pale-yellow:hover{border-color:#ffffcc!important}.w3-border-pale-blue,.w3-hover-border-pale-blue:hover{border-color:#e7ffff!important}
 ul li{text-decoration: none;!important;}
+.close-btn,.edit-btn
+{
+    -webkit-transition:linear 200ms;
+    -moz-transition:linear 200ms;
+    -ms-transition: linear 200ms;
+    -o-transition: linear 200ms;
+    transition: linear 200ms;
+    cursor: hand;
+}
 
+.close-btn
+{color: #f44245
+
+}
+.edit-btn
+{
+    color: black;
+}
+.actions a
+{  -webkit-transition:linear 400ms;
+    -moz-transition:linear 400ms;
+    -ms-transition: linear 400ms;
+    -o-transition: linear 400ms;
+    transition: linear 400ms;
+
+    
+}
+.actions a:hover 
+{
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    
+}
+
+
+
+
+
+
+.close-btn:hover,.edit-btn:hover
+
+{
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    transform: scale(1.5);
+
+}
 .map
 {
     width: 100%;
