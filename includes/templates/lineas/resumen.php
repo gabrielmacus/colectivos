@@ -94,7 +94,7 @@
                       <img src="http://icon-icons.com/icons2/474/PNG/512/magnifier-target_46870.png" style="width:60%">
                      </a>
 
-               <a href="lineas-reportar.php?id={{lineaId}}" class="w3-col s6 " style="text-align:left">
+                   <a href="lineas-reportar.php?id={{lineaId}}" class="w3-col s6 " style="text-align:left">
                       <img src="icons/satellite.png" style="width:60%;">
                      </a>
 <!--

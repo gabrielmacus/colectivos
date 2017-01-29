@@ -271,17 +271,100 @@
 
     }
 
-</script>
 
+
+    function selectParada(id,e)
+    {
+
+        $.each(paradas,function(k,v)
+        {
+            v.marker.setIcon("icons/parada.png");
+
+
+        });
+
+
+
+        if(!$(e).hasClass("active"))
+        {
+            $(".parada").removeClass("active");
+
+            var parada = paradas.filter(function(el)
+            {
+                return el.id==id;
+            })[0];
+
+            parada.marker.setIcon("icons/marker.png");
+            $(e).addClass("active");
+            map.setZoom(17);
+            map.setCenter(parada.marker.getPosition());
+        }
+        else
+        {
+            $(".parada").removeClass("active");
+            map.setZoom(15);
+        }
+
+
+    }
+
+</script>
 
 <script  id="template" type="application/x-mustache">
 
 {{#linea}}
-<h2>Seguimiento de la linea {{lineaNumero}} {{lineaNombre}}</h2>
+<?php if($isTracking)
+    {
+        ?>
+        <h2 class=" w3-padding" style="background:#3FC380;color:white">Posicion de la linea {{lineaNumero}} {{lineaNombre}}</h2>
+
+
+        <?php
+    }
+    else
+    {
+        ?>
+        <h2  class=" w3-padding" style="background:#3FC380;color:white">Reportando linea {{lineaNumero}} {{lineaNombre}}</h2>
+
+
+        <?php
+    }?>
 <div style="border:0;width: 100%;height: 300px"  id="map"></div>
- <ul>
+ <ul style="list-style:none;padding:0">
  {{#paradas}}
-    <li id="{{id}}">{{reverse}} <strong class="status"></strong> <strong class="distance"></strong></li>
+ <?php if($isTracking)
+{
+ ?>
+     <li  id="{{id}}" class=" w3-margin-bottom"><span  onclick="selectParada({{id}},this)" style="background:#F4D03F;width:100%" class="w3-tag parada  w3-text-black  w3-padding">
+     <i class="w3-text-red fa fa-map-marker" aria-hidden="true"></i>
+ {{reverse}}</span>
+
+ <div class="w3-row w3-padding">
+ <i style="font-size:20px;position:relative;top:2px" class="fa fa-clock-o" aria-hidden="true"></i>
+<strong class="status"></strong>, <i style="font-size:20px;position:relative;top:2px" class="fa fa-location-arrow" aria-hidden="true"></i>
+ <strong style="font-weight:300" class="distance"></strong>
+ </div>
+
+ </li>
+    <?php
+}
+    else
+    {
+     ?>
+
+         <li id="{{id}}"   class=" w3-margin-bottom"><span onclick="selectParada({{id}},this)" style="background:#BE90D4;width:100%" class="parada w3-tag  w3-text-black  w3-padding-large"><i class="w3-text-red fa fa-map-marker" aria-hidden="true"></i>
+ {{reverse}}</span></li>
+
+        <?php
+    }
+
+
+    ?>
+
+
+
+
+
  {{/paradas}}
 </ul>
 {{/linea}}

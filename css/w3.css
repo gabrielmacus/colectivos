@@ -373,16 +373,16 @@ ul li{text-decoration: none;!important;}
     -o-transition: linear 400ms;
     transition: linear 400ms;
 
-    
+   
 }
 .actions a:hover 
 {
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    transform: rotate(90deg);
-    
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
+
 }
 
 
@@ -411,7 +411,10 @@ body{
 }
 
 
-
+.parada.active
+{
+    filter:invert(20%);
+}
 @media only  screen and (max-width: 768px) {
 
     .main-container

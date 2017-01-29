@@ -36,9 +36,8 @@
         -o-transition: ease-out 500ms;
         transition: ease-out 500ms;
         position: relative;
-        bottom: -80px;
+        bottom: -0px;
         z-index: -10;
-        opacity: 0;
         font-weight: bold;
     }
 
@@ -49,6 +48,15 @@
         color: #3a3a3a;
         font-size: 40px;
         opacity: 1;
+
+
+
+        bottom: -80px;
+
+        opacity: 0;
+
+
+
     }
 
 </style>
