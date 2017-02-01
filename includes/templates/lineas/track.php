@@ -60,6 +60,7 @@
 
                         if(parada)
                         {
+
                             calculateDistance(position,parada.marker.getPosition(),function(data){
 
                                 var distance=data.rows[0].elements[0].distance.value;
@@ -142,11 +143,54 @@
         );
 
     }
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++ ) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+    function traceRoute(origin,destination,map)
+    {
+        var directionsService = new google.maps.DirectionsService;
 
+        directionsService.route({
+            origin: origin,
+            destination:destination,
+            travelMode: 'DRIVING'
+        }, function(response, status) {
+
+
+            var directionsDisplay = new google.maps.DirectionsRenderer({
+                suppressMarkers: true,
+                map: map,
+                directions: response,
+                draggable: false,
+                suppressPolylines: true,
+                // IF YOU SET `suppressPolylines` TO FALSE, THE LINE WILL BE
+                // AUTOMATICALLY DRAWN FOR YOU.
+            });
+
+
+            pathPoints = response.routes[0].overview_path.map(function (location) {
+                return {lat: location.lat(), lng: location.lng()};
+            });
+
+            var assumedPath = new google.maps.Polyline({
+                path: pathPoints, //APPLY LIST TO PATH
+                geodesic: true,
+               /* strokeColor: getRandomColor(),*/strokeColor:'#1abc9c',
+                strokeOpacity: 0.7,
+                strokeWeight: 2.5
+            });
+
+            assumedPath.setMap(map); // Set the path object to the map
+
+        });
+    }
     function initMap()
     {
-
-
 
         loadData(function(res) {
 
@@ -175,10 +219,32 @@
                    icon:"icons/bus40x40.png"
                 }
             );
+            var i=0;
 
             $.each(res[0].paradas,function(k,v){
 
-                console.log(v);
+
+                var origen=res[0].paradas[i];
+                var destino=res[0].paradas[i+1];
+
+                i++;
+
+                if(destino)
+                {
+                  traceRoute({lat:parseFloat(origen.lat),lng:parseFloat(origen.lng)},{lat:parseFloat(destino.lat),lng:parseFloat(destino.lng)},map);
+
+                }
+                else
+                {
+                    traceRoute({lat:parseFloat(origen.lat),lng:parseFloat(origen.lng)},{lat:parseFloat(res[0].paradas[0].lat),lng:parseFloat(res[0].paradas[0].lng)},map);
+
+                }
+
+
+
+
+
+
                 var parada={marker:new google.maps.Marker(
                     {
                         map:map,
@@ -218,6 +284,8 @@
             else
             {
               ?>
+
+
 
             navigator.geolocation.watchPosition(watchPosition,function(err)
             {

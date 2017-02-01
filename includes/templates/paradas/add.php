@@ -120,12 +120,17 @@
 
 
         <?php
+        }else
+        {
+        ?>
+       var  marker = new google.maps.Marker({map: map});
+        <?php
         }?>
 
 
 
         var geocoder = new google.maps.Geocoder;
-       // marker = new google.maps.Marker({map: map});
+
 
 
         map.addListener('click', function(event) {
